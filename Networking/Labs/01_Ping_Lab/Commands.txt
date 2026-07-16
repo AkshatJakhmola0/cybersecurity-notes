@@ -1,1 +1,7 @@
+ping google.com
 
+ping 8.8.8.8
+
+ping localhost
+
+ping 127.0.0.1
