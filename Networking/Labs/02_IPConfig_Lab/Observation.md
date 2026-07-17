@@ -1,88 +1,74 @@
 # Observations
 
-## Command 1
+## 1. `ipconfig`
 
-```cmd
-ipconfig
-```
-
-### Observation
-
-- The system displayed all available network adapters.
-- The active adapter was the Wi-Fi adapter.
-- IPv4 Address: **192.168.0.118**
-- Subnet Mask: **255.255.255.0**
+- Displayed all network adapters.
+- Active adapter: **Wi-Fi**
+- Initial IPv4 Address: **192.168.0.118**
 - Default Gateway: **192.168.0.1**
-- Multiple disconnected adapters were also listed.
+- VirtualBox Host-Only adapter: **192.168.56.1**
+- Other adapters were disconnected.
 
 ---
 
-## Command 2
+## 2. `ipconfig /all`
 
-```cmd
-ipconfig /all
-```
-
-### Observation
-
-The command displayed detailed information including:
-
-- Host Name
-- MAC Address
-- DHCP Status
-- DNS Server
-- Lease Information
-- Network Adapter Description
-- VirtualBox Host-Only Adapter
-- Physical Addresses
-- IPv4 and IPv6 Configuration
+- DHCP was **Enabled**.
+- DHCP Server: **192.168.0.1**
+- DNS Server: **192.168.0.1**
+- Adapter: **Realtek 8821CE Wireless LAN**
+- Displayed MAC Address, Lease Time, DNS Servers and other adapter details.
+- VirtualBox adapter was configured with a static IP.
 
 ---
 
-## Command 3
+## 3. `ipconfig /displaydns`
 
-```cmd
-ipconfig /displaydns
-```
-
-### Observation
-
-The DNS cache contained multiple cached entries, including:
-
-- Google
-- GitHub
-- ChatGPT
-- Microsoft Services
-- WhatsApp
-- Google Drive
-- Cloudflare
-
-Different DNS record types were observed:
-
-- A Records
-- CNAME Records
-- PTR Records
-
-TTL values were also displayed for each cached entry.
+- Displayed cached DNS records.
+- Records included domains such as Google, GitHub, ChatGPT and Microsoft.
+- Different record types (A, CNAME, PTR) and TTL values were visible.
 
 ---
 
-## Command 4
+## 4. `ipconfig / flushdns`
 
-```cmd
-ipconfig /flushdns
-```
+- Command failed because of incorrect syntax.
+- Windows displayed:
+  - **Error: unrecognized or incomplete command line.**
+- Correct command:
+  ```cmd
+  ipconfig /flushdns
+  ```
 
-### Observation
+---
 
-The Windows DNS Resolver Cache was successfully cleared.
+## 5. `ipconfig /flushdns`
 
-Previously cached DNS entries were removed from the local DNS cache.
+- Successfully cleared the Windows DNS Resolver Cache.
+- Future DNS requests will create new cache entries.
 
-Subsequent DNS requests will require fresh resolution from the configured DNS server.
+---
+
+## 6. `ipconfig /release`
+
+- Released the DHCP-assigned IPv4 address.
+- IPv4 Default Gateway was removed.
+- Link-local IPv6 address remained.
+- VirtualBox adapter was unaffected.
+- Disconnected adapters displayed **"Media disconnected"**.
+
+---
+
+## 7. `ipconfig /renew`
+
+- Successfully obtained a new DHCP lease.
+- New IPv4 Address: **192.168.1.34**
+- Default Gateway: **192.168.1.1**
+- DNS Suffix: **bbrouter**
+- VirtualBox adapter remained unchanged.
 
 ---
 
 ## Overall Observation
 
-The lab demonstrated how Windows stores and manages network configuration and DNS cache information. It also showed how DNS cache can be inspected and cleared for troubleshooting or security purposes.
+This lab demonstrated how to inspect Windows network configuration, analyze the DNS cache, clear cached DNS records, and manage DHCP leases using the `ipconfig` utility. It also highlighted the importance of correct command syntax and the difference between active, disconnected, and virtual network adapters.
