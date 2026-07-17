@@ -1,20 +1,16 @@
 # Lab Report
 
-## Lab Name
+## Lab Information
 
-Windows IPConfig Commands
-
----
-
-## Lab Status
-
-✅ Completed
+- **Lab Name:** Windows IPConfig Commands
+- **Status:** Completed
+- **Platform:** Windows Command Prompt
 
 ---
 
-## Date
+## Objective
 
-17 July 2026
+To explore the Windows `ipconfig` utility for viewing network configuration, analyzing the DNS Resolver Cache, and managing DHCP leases.
 
 ---
 
@@ -22,44 +18,57 @@ Windows IPConfig Commands
 
 ```cmd
 ipconfig
-
 ipconfig /all
-
 ipconfig /displaydns
-
 ipconfig /flushdns
+ipconfig /release
+ipconfig /renew
 ```
 
 ---
 
-## Objectives Achieved
+## Work Performed
 
-- Viewed network configuration.
-- Inspected detailed adapter information.
-- Viewed DNS resolver cache.
-- Cleared DNS resolver cache.
+- Displayed the basic network configuration.
+- Viewed detailed adapter information.
+- Examined the DNS Resolver Cache.
+- Cleared the DNS Resolver Cache.
+- Released the current DHCP lease.
+- Renewed the DHCP lease.
+
+---
+
+## Key Findings
+
+| Item | Result |
+|------|--------|
+| Initial IPv4 Address | 192.168.0.118 |
+| Renewed IPv4 Address | 192.168.1.34 |
+| Initial Gateway | 192.168.0.1 |
+| Renewed Gateway | 192.168.1.1 |
+| VirtualBox Adapter | 192.168.56.1 (Unchanged) |
+| DHCP | Enabled |
+
+---
+
+## Challenges
+
+- Executed `ipconfig / flushdns` with incorrect syntax.
+- Corrected the command to `ipconfig /flushdns` and successfully flushed the DNS cache.
 
 ---
 
 ## Skills Practiced
 
 - Windows Networking
-- DNS Troubleshooting
-- DHCP Analysis
-- Network Configuration Analysis
-- Incident Response Basics
-
----
-
-## Screenshots
-
-- 01_ipconfig.png
-- 02_ipconfig_all.png
-- 03_displaydns_before.png
-- 04_flushdns.png
+- TCP/IP Configuration
+- DNS Cache Analysis
+- DHCP Lease Management
+- Windows Command Line
+- Basic Network Troubleshooting
 
 ---
 
 ## Conclusion
 
-The Windows `ipconfig` utility provides essential information about network configuration and DNS resolution. Through this lab, I learned how to inspect adapter configuration, analyze DNS cache entries, and clear the DNS resolver cache. These commands are fundamental tools for network administrators and cybersecurity professionals during troubleshooting and incident response.
+This lab provided practical experience with the Windows `ipconfig` utility. I learned how to inspect network configuration, analyze and clear the DNS Resolver Cache, and release and renew DHCP leases. The exercise also reinforced the importance of correct command syntax and understanding the role of active, disconnected, and virtual network adapters during troubleshooting.
