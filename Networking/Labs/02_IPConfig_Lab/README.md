@@ -160,23 +160,6 @@ When `ipconfig /renew` is executed, Windows follows the DHCP process:
 
 ---
 
-## Learning Outcome
-
-After completing this lab, I learned how to:
-
-- Identify active network adapters
-- Find IPv4 and IPv6 addresses
-- Identify subnet masks and default gateways
-- Inspect DHCP configuration
-- Analyze DNS Resolver Cache
-- Understand DNS Record Types
-- Flush DNS cache
-- Release DHCP lease
-- Renew DHCP lease
-- Troubleshoot command syntax errors
-
----
-
 ## Cybersecurity Perspective
 
 These commands are useful during:
@@ -206,21 +189,6 @@ The DNS Resolver Cache provides useful investigative information but should not 
 
 ---
 
-## Interview Questions
-
-1. What is `ipconfig`?
-2. What is the purpose of `ipconfig /all`?
-3. What does `ipconfig /displaydns` display?
-4. Why do we use `ipconfig /flushdns`?
-5. What happens after `ipconfig /release`?
-6. What happens after `ipconfig /renew`?
-7. Explain DHCP.
-8. Explain the DHCP DORA process.
-9. What is a DNS Resolver Cache?
-10. Why are VirtualBox adapters unaffected by DHCP release?
-
----
-
 ## Skills Gained
 
 - Windows Networking
@@ -230,20 +198,6 @@ The DNS Resolver Cache provides useful investigative information but should not 
 - Windows Command Line
 - Incident Response Basics
 - Network Documentation
-
----
-
-## Evidence
-
-| Screenshot | Description |
-|------------|-------------|
-| 01_ipconfig.png | Basic IP Configuration |
-| 02_ipconfig_all.png | Detailed Network Configuration |
-| 03_displaydns_before.png | DNS Cache Before Flush |
-| 04_flushdns_error.png | Incorrect FlushDNS Command |
-| 05_flushdns_success.png | Successful DNS Cache Flush |
-| 06_release.png | DHCP Lease Released |
-| 07_renew.png | DHCP Lease Renewed |
 
 ---
 
