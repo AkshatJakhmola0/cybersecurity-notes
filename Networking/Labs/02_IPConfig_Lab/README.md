@@ -1,8 +1,8 @@
-# Lab 02 - IPConfig Command
+# Lab 02 - Windows IPConfig Commands
 
 ## Objective
 
-To learn how to inspect, analyze, and troubleshoot network configuration using the Windows `ipconfig` command and its commonly used options.
+To learn how to inspect, analyze, and troubleshoot Windows network configuration using the `ipconfig` command and its commonly used options.
 
 ---
 
@@ -10,25 +10,26 @@ To learn how to inspect, analyze, and troubleshoot network configuration using t
 
 - Windows Operating System
 - Command Prompt
-- Internet Connection
+- Active Wi-Fi or Ethernet connection
+- Administrator privileges (recommended)
 
 ---
 
 ## Theory
 
-`ipconfig` is a Windows command-line utility used to display and manage the TCP/IP network configuration of a computer.
+`ipconfig` is a Windows command-line utility used to display and manage TCP/IP configuration.
 
-It helps users and security professionals identify:
+It helps administrators and cybersecurity professionals inspect:
 
-- Network adapters
-- IP addresses
+- IPv4 and IPv6 addresses
 - Subnet masks
-- Default gateway
+- Default gateways
 - DNS servers
-- DHCP information
-- DNS cache
+- DHCP configuration
+- DNS Resolver Cache
+- Active and disconnected network adapters
 
-These details are essential for network troubleshooting, system administration, and cybersecurity investigations.
+Understanding these details is essential for network troubleshooting, system administration, SOC operations, and incident response.
 
 ---
 
@@ -36,36 +37,126 @@ These details are essential for network troubleshooting, system administration, 
 
 ```cmd
 ipconfig
-
 ipconfig /all
-
 ipconfig /displaydns
-
 ipconfig /flushdns
+ipconfig /release
+ipconfig /renew
 ```
+
+During the lab, an incorrect command was also tested:
+
+```cmd
+ipconfig / flushdns
+```
+
+This produced an error because Windows commands do **not** allow a space after `/`.
 
 ---
 
 ## Steps Performed
 
 1. Displayed the basic network configuration using `ipconfig`.
-2. Displayed detailed adapter information using `ipconfig /all`.
-3. Viewed the local DNS resolver cache using `ipconfig /displaydns`.
-4. Cleared the DNS resolver cache using `ipconfig /flushdns`.
+2. Displayed complete adapter information using `ipconfig /all`.
+3. Viewed the Windows DNS Resolver Cache using `ipconfig /displaydns`.
+4. Executed an incorrect `flushdns` command and analyzed the error.
+5. Successfully flushed the DNS Resolver Cache.
+6. Released the DHCP-assigned IPv4 address.
+7. Renewed the DHCP lease and restored network connectivity.
 
 ---
 
-## Expected Output
+## Results
 
-- Network adapter information
-- IPv4 and IPv6 addresses
-- Subnet mask
-- Default gateway
-- MAC address
-- DHCP information
-- DNS server information
-- Cached DNS entries
-- DNS cache successfully cleared
+### Initial Wi-Fi Configuration
+
+| Parameter | Value |
+|-----------|-------|
+| IPv4 Address | 192.168.0.118 |
+| Subnet Mask | 255.255.255.0 |
+| Default Gateway | 192.168.0.1 |
+| DHCP | Enabled |
+| DHCP Server | 192.168.0.1 |
+
+---
+
+### VirtualBox Host-Only Adapter
+
+| Parameter | Value |
+|-----------|-------|
+| IPv4 Address | 192.168.56.1 |
+| DHCP | Disabled |
+| Default Gateway | None |
+
+---
+
+### DNS Resolver Cache
+
+The DNS cache contained records related to services such as:
+
+- Google
+- GitHub
+- ChatGPT
+- WhatsApp
+- Microsoft
+- Google Drive
+- Cloudflare
+
+Observed record types included:
+
+- A Record
+- AAAA Record
+- CNAME Record
+- PTR Record
+
+TTL values were also displayed for each cached record.
+
+---
+
+### After `ipconfig /flushdns`
+
+Windows successfully cleared the DNS Resolver Cache.
+
+Output:
+
+```text
+Successfully flushed the DNS Resolver Cache.
+```
+
+---
+
+### After `ipconfig /release`
+
+- IPv4 address was released.
+- IPv4 Default Gateway disappeared.
+- Link-local IPv6 address remained.
+- VirtualBox adapter remained unchanged.
+- Disconnected adapters displayed "Media disconnected".
+
+---
+
+### After `ipconfig /renew`
+
+New DHCP configuration:
+
+| Parameter | Value |
+|-----------|-------|
+| IPv4 Address | 192.168.1.34 |
+| Default Gateway | 192.168.1.1 |
+| DNS Suffix | bbrouter |
+
+The IP address changed from **192.168.0.x** to **192.168.1.x**, indicating that the DHCP server assigned a new address from a different subnet.
+
+---
+
+## DHCP DORA Process
+
+When `ipconfig /renew` is executed, Windows follows the DHCP process:
+
+1. Discover
+2. Offer
+3. Request
+4. Acknowledgement
 
 ---
 
@@ -73,66 +164,89 @@ ipconfig /flushdns
 
 After completing this lab, I learned how to:
 
-- Identify active and inactive network adapters.
-- Find the system's IPv4 and IPv6 addresses.
-- Identify the subnet mask and default gateway.
-- View MAC addresses.
-- Determine DHCP configuration.
-- Inspect the Windows DNS cache.
-- Clear the DNS resolver cache.
+- Identify active network adapters
+- Find IPv4 and IPv6 addresses
+- Identify subnet masks and default gateways
+- Inspect DHCP configuration
+- Analyze DNS Resolver Cache
+- Understand DNS Record Types
+- Flush DNS cache
+- Release DHCP lease
+- Renew DHCP lease
+- Troubleshoot command syntax errors
 
 ---
 
 ## Cybersecurity Perspective
 
-The `ipconfig` command is frequently used by SOC Analysts, Incident Responders, and System Administrators to:
+These commands are useful during:
 
-- Troubleshoot network connectivity.
-- Verify network configuration.
-- Investigate DNS-related issues.
-- Detect suspicious DNS resolutions.
-- Confirm DHCP configuration.
-- Inspect local DNS cache during incident response.
+- Network troubleshooting
+- DNS investigations
+- Incident response
+- Malware analysis
+- DHCP troubleshooting
+- DNS cache analysis
+- Initial evidence collection
+
+The DNS Resolver Cache provides useful investigative information but should not be considered complete browsing history.
 
 ---
 
-## Challenge
+## Challenge Completed
 
-- Identify the active network adapter.
-- Find the system's IPv4 address.
-- Identify the default gateway.
-- Determine whether DHCP is enabled.
-- View cached DNS records.
-- Flush the DNS cache.
+- ✅ Viewed basic IP configuration
+- ✅ Viewed detailed adapter information
+- ✅ Inspected DNS Resolver Cache
+- ✅ Cleared DNS Resolver Cache
+- ✅ Released DHCP lease
+- ✅ Renewed DHCP lease
+- ✅ Identified VirtualBox Host-Only adapter
+- ✅ Corrected command syntax error
 
 ---
 
 ## Interview Questions
 
-1. What is the purpose of the `ipconfig` command?
-2. What information does `ipconfig /all` provide?
-3. What is the function of `ipconfig /displaydns`?
-4. Why is `ipconfig /flushdns` used?
-5. What is DHCP?
-6. What is the purpose of a default gateway?
-7. What is DNS cache?
+1. What is `ipconfig`?
+2. What is the purpose of `ipconfig /all`?
+3. What does `ipconfig /displaydns` display?
+4. Why do we use `ipconfig /flushdns`?
+5. What happens after `ipconfig /release`?
+6. What happens after `ipconfig /renew`?
+7. Explain DHCP.
+8. Explain the DHCP DORA process.
+9. What is a DNS Resolver Cache?
+10. Why are VirtualBox adapters unaffected by DHCP release?
 
 ---
 
 ## Skills Gained
 
-- Network Troubleshooting
 - Windows Networking
-- DNS Analysis
-- DHCP Analysis
-- Network Configuration Analysis
+- TCP/IP Analysis
+- DNS Investigation
+- DHCP Troubleshooting
+- Windows Command Line
 - Incident Response Basics
+- Network Documentation
+
+---
+
+## Evidence
+
+| Screenshot | Description |
+|------------|-------------|
+| 01_ipconfig.png | Basic IP Configuration |
+| 02_ipconfig_all.png | Detailed Network Configuration |
+| 03_displaydns_before.png | DNS Cache Before Flush |
+| 04_flushdns_error.png | Incorrect FlushDNS Command |
+| 05_flushdns_success.png | Successful DNS Cache Flush |
+| 06_release.png | DHCP Lease Released |
+| 07_renew.png | DHCP Lease Renewed |
 
 ---
 
 ## Lab Summary
 
-This lab demonstrated how to use the Windows `ipconfig` utility to examine system network configuration, inspect DNS cache entries, and clear the local DNS resolver cache. These commands are essential for network administration and cybersecurity troubleshooting.
-
----
-
+This lab demonstrated how to inspect Windows network configuration, analyze cached DNS records, clear the DNS Resolver Cache, release and renew DHCP leases, and understand how Windows manages IP addressing through DHCP.
