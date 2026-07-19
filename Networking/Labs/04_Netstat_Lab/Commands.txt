@@ -1,0 +1,6 @@
+netstat
+netstat -a
+netstat -n
+netstat -o
+netstat -b
+netstat -ano
