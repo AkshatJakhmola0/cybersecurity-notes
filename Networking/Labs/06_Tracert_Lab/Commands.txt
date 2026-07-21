@@ -1,0 +1,16 @@
+# Tracert Lab - Commands Executed
+
+# Trace Route to Google
+tracert google.com
+
+# Trace Route to GitHub
+tracert github.com
+
+# Trace Route to Google Public DNS
+tracert 8.8.8.8
+
+# Trace Route to Cloudflare Public DNS
+tracert 1.1.1.1
+
+# Trace Route Without DNS Resolution
+tracert -d google.com
