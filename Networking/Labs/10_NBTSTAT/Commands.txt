@@ -1,0 +1,5 @@
+nbtstat
+nbtstat -n
+nbtstat -c
+nbtstat -r
+nbtstat -s
