@@ -1,0 +1,5 @@
+getmac
+getmac /v
+getmac /fo list
+getmac /fo csv
+getmac /?
