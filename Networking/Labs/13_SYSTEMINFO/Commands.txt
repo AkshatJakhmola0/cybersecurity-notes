@@ -1,0 +1,4 @@
+systeminfo
+systeminfo | more
+systeminfo | findstr /B /C:"Host Name"
+systeminfo /?
