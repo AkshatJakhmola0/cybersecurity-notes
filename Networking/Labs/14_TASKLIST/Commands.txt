@@ -1,0 +1,5 @@
+tasklist
+tasklist /v
+tasklist /svc
+tasklist /m
+tasklist /?
