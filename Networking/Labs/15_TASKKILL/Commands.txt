@@ -1,0 +1,8 @@
+taskkill /?
+notepad
+tasklist
+taskkill /PID <PID>
+notepad
+taskkill /IM notepad.exe
+notepad
+taskkill /F /IM notepad.exe
