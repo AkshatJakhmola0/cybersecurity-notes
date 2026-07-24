@@ -1,164 +1,50 @@
-# Lab 14 – TASKLIST Command
-
-## Objective
-
-The objective of this lab is to understand how to use the **TASKLIST** command to view running processes in Windows. The lab demonstrates how to display basic process information, verbose details, associated services, loaded DLL modules, and built-in command help. It also explains the importance of process enumeration in Windows system administration, incident response, malware analysis, and digital forensics.
+# Lab 14 – TASKLIST Observations
 
 ---
 
-## Prerequisites
+## 1. Display Running Processes
 
-- Windows 10/11
-- Command Prompt
-- Basic understanding of Windows processes
-
----
-
-## Theory
-
-The **TASKLIST** command is a built-in Windows command-line utility used to display all currently running processes on a local or remote computer. It provides valuable information such as Process ID (PID), memory usage, services hosted by each process, and loaded Dynamic Link Libraries (DLLs).
-
-System administrators use TASKLIST for monitoring system performance and troubleshooting applications, while cybersecurity professionals use it during incident response, malware analysis, threat hunting, and digital forensic investigations to identify suspicious or malicious processes.
+- Executed the `tasklist` command to display all running processes.
+- Observed the Image Name, PID, Session Name, Session Number, and Memory Usage of each process.
+- Identified Windows system processes such as `svchost.exe`, `winlogon.exe`, `lsass.exe`, and `services.exe`.
+- Observed user applications including Chrome, OneDrive, WhatsApp, and other installed software.
+- Learned that TASKLIST provides a quick overview of all active processes running on the system.
 
 ---
 
-## Syntax
+## 2. Display Detailed Process Information
 
-```cmd
-tasklist [options]
-```
-
----
-
-## Commands Used
-
-```cmd
-tasklist
-tasklist /v
-tasklist /svc
-tasklist /m
-tasklist /?
-```
+- Executed the `tasklist /v` command.
+- Observed additional details including Status, User Name, CPU Time, and Window Title.
+- Verified that active desktop applications displayed the Running status.
+- Learned that verbose information is useful for monitoring system activity and troubleshooting applications.
 
 ---
 
-## Additional Reference Commands (Not Executed)
+## 3. Display Services Associated with Processes
 
-```cmd
-tasklist /FI "IMAGENAME eq chrome.exe"
-tasklist /FI "PID gt 5000"
-tasklist /FI "STATUS eq RUNNING"
-tasklist /FO LIST
-tasklist /FO CSV
-tasklist /FO TABLE
-tasklist /NH
-tasklist /APPS
-```
+- Executed the `tasklist /svc` command.
+- Observed Windows services mapped to each process.
+- Identified important services such as WinDefend, WlanSvc, Dnscache, Dhcp, RpcSs, EventLog, and CryptSvc.
+- Verified that user applications displayed **N/A** because they are not Windows services.
+- Learned that this command is useful for service management and incident response.
 
 ---
 
-## Steps Performed
+## 4. Display Loaded DLL Modules
 
-1. Displayed all running processes.
-2. Viewed detailed process information.
-3. Displayed Windows services associated with processes.
-4. Displayed DLL modules loaded by running processes.
-5. Viewed the built-in help documentation.
-
----
-
-## Expected Output
-
-- List of running processes.
-- Process IDs (PID).
-- Memory usage.
-- Verbose process details.
-- Windows services mapped to processes.
-- DLL modules loaded by processes.
-- TASKLIST help information.
+- Executed the `tasklist /m` command.
+- Observed DLL modules loaded by running processes.
+- Identified common Windows DLLs including `kernel32.dll`, `ntdll.dll`, `user32.dll`, `advapi32.dll`, and `combase.dll`.
+- Observed that different applications loaded different DLLs depending on their functionality.
+- Learned that DLL inspection helps detect injected or suspicious modules during malware analysis.
 
 ---
 
-## Key Findings
+## 5. Display TASKLIST Help Information
 
-- Successfully listed all active processes running on the system.
-- Identified Process IDs (PID) and memory consumption.
-- Observed services hosted by Windows processes.
-- Examined DLL modules loaded into various processes.
-- Learned multiple filtering and formatting options.
-- Understood how TASKLIST assists in Windows troubleshooting and cybersecurity investigations.
-
----
-
-## Cybersecurity Perspective
-
-TASKLIST is one of the most frequently used commands during security investigations. It allows analysts to identify suspicious processes, detect malicious applications, verify legitimate Windows services, inspect DLL usage, and collect evidence during incident response. It is also valuable for malware analysis, live forensics, SOC operations, and endpoint monitoring.
-
----
-
-## Challenges
-
-- Large number of running processes made analysis time-consuming.
-- Some processes loaded hundreds of DLL modules.
-- Differentiating between legitimate Windows processes and third-party applications required careful observation.
-
----
-
-## Interview Questions
-
-### 1. What is TASKLIST used for?
-
-It displays all currently running processes on a Windows computer.
-
----
-
-### 2. What is a PID?
-
-PID (Process ID) is a unique number assigned to every running process.
-
----
-
-### 3. Which command displays services associated with processes?
-
-```cmd
-tasklist /svc
-```
-
----
-
-### 4. Which command displays loaded DLL modules?
-
-```cmd
-tasklist /m
-```
-
----
-
-### 5. What does the `/V` option do?
-
-It displays verbose information such as user name, CPU time, status, and window title.
-
----
-
-### 6. Why is TASKLIST important in cybersecurity?
-
-It helps identify suspicious processes, investigate malware, perform incident response, and conduct digital forensic analysis.
-
----
-
-## Skills Gained
-
-- Process Enumeration
-- Windows Process Management
-- PID Identification
-- Service Enumeration
-- DLL Inspection
-- Windows Troubleshooting
-- Malware Investigation Basics
-- Incident Response Fundamentals
-
----
-
-## Lab Summary
-
-This lab demonstrated the use of the TASKLIST command to monitor running processes, inspect services and DLL modules, and understand process management in Windows. The knowledge gained is valuable for Windows administration, cybersecurity investigations, malware analysis, and digital forensics.
+- Executed the `tasklist /?` command.
+- Reviewed the syntax, parameters, filters, and examples provided by the built-in help.
+- Learned about options such as `/V`, `/SVC`, `/M`, `/FI`, `/FO`, `/NH`, and `/APPS`.
+- Understood how filters can be used to search for specific processes.
+- Learned that built-in documentation is useful for understanding advanced command usage.
