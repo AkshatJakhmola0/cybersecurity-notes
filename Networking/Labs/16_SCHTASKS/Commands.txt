@@ -1,0 +1,5 @@
+schtasks /?
+schtasks /query
+schtasks /create /tn "Notepad Lab" /tr "notepad.exe" /sc once /st 23:59
+schtasks /run /tn "Notepad Lab"
+schtasks /delete /tn "Notepad Lab" /f
