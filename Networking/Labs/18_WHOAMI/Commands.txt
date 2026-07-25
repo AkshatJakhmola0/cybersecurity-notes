@@ -1,0 +1,7 @@
+whoami
+whoami /all
+whoami /user
+whoami /groups
+whoami /priv
+whoami /user /fo list
+whoami /?
