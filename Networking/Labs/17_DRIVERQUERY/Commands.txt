@@ -1,0 +1,5 @@
+driverquery
+driverquery /v
+driverquery /fo csv
+driverquery /si
+driverquery /?
