@@ -1,0 +1,13 @@
+net
+
+net help
+
+net user
+
+net localgroup
+
+net share
+
+net accounts
+
+net config workstation
