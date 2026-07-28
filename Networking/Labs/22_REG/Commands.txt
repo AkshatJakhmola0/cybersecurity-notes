@@ -1,0 +1,15 @@
+reg
+
+reg /?
+
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion"
+
+reg query "HKCU\Control Panel\Desktop"
+
+reg query "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall"
+
+reg query "HKCU\Environment"
+
+reg query "HKCU\Software\Microsoft\Windows\CurrentVersion\Run"
+
+reg query "HKLM\SYSTEM\CurrentControlSet\Control\ComputerName\ActiveComputerName"
