@@ -1,0 +1,7 @@
+sc
+sc query
+sc query state= all
+sc qc EventLog
+sc GetKeyName "Windows Event Log"
+sc GetDisplayName EventLog
+sc /?
