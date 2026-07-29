@@ -1,0 +1,15 @@
+findstr /?
+
+findstr "Windows" systeminfo.txt
+
+findstr /i "windows" systeminfo.txt
+
+findstr /n "OS" systeminfo.txt
+
+findstr /b "OS" systeminfo.txt
+
+findstr /c:"Microsoft Windows" systeminfo.txt
+
+findstr "Memory Version" systeminfo.txt
+
+findstr /r "^OS" systeminfo.txt
