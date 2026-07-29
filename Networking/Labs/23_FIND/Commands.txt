@@ -1,0 +1,8 @@
+find /?
+find "Windows" C:\Windows\System32\drivers\etc\hosts
+systeminfo > systeminfo.txt
+find "OS" systeminfo.txt
+find "Version" systeminfo.txt
+find "Memory" systeminfo.txt
+find /i "windows" systeminfo.txt
+find /n "OS" systeminfo.txt
