@@ -1,0 +1,15 @@
+ftype
+
+ftype /?
+
+ftype exefile
+
+ftype txtfilelegacy
+
+ftype htmlfile
+
+ftype jpegfile
+
+ftype Python.File
+
+ftype batfile
