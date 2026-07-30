@@ -1,0 +1,8 @@
+assoc
+assoc /?
+assoc .txt
+assoc .exe
+assoc .pdf
+assoc .html
+assoc .jpg
+assoc .py
