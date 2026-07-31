@@ -1,0 +1,13 @@
+xcopy /?
+
+mkdir C:\XCOPY_Lab
+
+echo Test File > C:\XCOPY_Lab\test.txt
+
+xcopy C:\XCOPY_Lab "%USERPROFILE%\Desktop\XCOPY_Backup"
+
+xcopy C:\XCOPY_Lab "%USERPROFILE%\Desktop\XCOPY_Backup" /S
+
+xcopy C:\XCOPY_Lab "%USERPROFILE%\Desktop\XCOPY_Backup" /E
+
+xcopy C:\XCOPY_Lab "%USERPROFILE%\Desktop\XCOPY_Backup" /Y
