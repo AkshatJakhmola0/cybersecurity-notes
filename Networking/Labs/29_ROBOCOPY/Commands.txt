@@ -1,0 +1,13 @@
+robocopy /?
+
+mkdir C:\ROBOCOPY_Source
+
+echo Test File > C:\ROBOCOPY_Source\test.txt
+
+robocopy C:\ROBOCOPY_Source "%USERPROFILE%\Desktop\ROBOCOPY_Backup"
+
+robocopy C:\ROBOCOPY_Source "%USERPROFILE%\Desktop\ROBOCOPY_Backup" /E
+
+robocopy C:\ROBOCOPY_Source "%USERPROFILE%\Desktop\ROBOCOPY_Backup" /S
+
+robocopy C:\ROBOCOPY_Source "%USERPROFILE%\Desktop\ROBOCOPY_Backup" /MIR
