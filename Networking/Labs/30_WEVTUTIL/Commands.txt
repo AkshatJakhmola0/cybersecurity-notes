@@ -1,1 +1,13 @@
+wevtutil /?
 
+wevtutil el
+
+wevtutil gl System
+
+wevtutil qe System /c:10
+
+wevtutil qe Application /c:10
+
+wevtutil qe Security /c:5
+
+wevtutil gli System
