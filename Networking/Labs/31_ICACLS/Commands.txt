@@ -1,0 +1,13 @@
+icacls /?
+
+mkdir C:\ICACLS_Lab
+
+echo Test File > C:\ICACLS_Lab\test.txt
+
+icacls C:\ICACLS_Lab
+
+icacls C:\ICACLS_Lab\test.txt
+
+icacls C:\ICACLS_Lab /grant Everyone:R
+
+icacls C:\ICACLS_Lab /remove Everyone
