@@ -1,0 +1,9 @@
+openfiles /?
+
+openfiles
+
+openfiles /query
+
+openfiles /local on
+
+openfiles /query
