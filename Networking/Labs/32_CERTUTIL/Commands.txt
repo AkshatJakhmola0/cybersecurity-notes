@@ -1,0 +1,15 @@
+certutil -?
+
+mkdir C:\CERTUTIL_Lab
+
+echo Hello Cyber Security > C:\CERTUTIL_Lab\sample.txt
+
+certutil -hashfile C:\CERTUTIL_Lab\sample.txt MD5
+
+certutil -hashfile C:\CERTUTIL_Lab\sample.txt SHA1
+
+certutil -hashfile C:\CERTUTIL_Lab\sample.txt SHA256
+
+certutil -encode C:\CERTUTIL_Lab\sample.txt C:\CERTUTIL_Lab\sample.b64
+
+certutil -decode C:\CERTUTIL_Lab\sample.b64 C:\CERTUTIL_Lab\decoded.txt
