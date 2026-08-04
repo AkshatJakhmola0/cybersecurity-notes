@@ -1,0 +1,15 @@
+shutdown /?
+
+shutdown /a
+
+shutdown /l
+
+shutdown /s /t 60
+
+shutdown /a
+
+shutdown /r /t 60
+
+shutdown /a
+
+shutdown /i
