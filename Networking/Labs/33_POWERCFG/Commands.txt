@@ -1,0 +1,7 @@
+powercfg /?
+powercfg /list
+powercfg /getactivescheme
+powercfg /energy
+powercfg /batteryreport
+powercfg /requests
+powercfg /devicequery wake_armed
