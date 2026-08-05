@@ -82,4 +82,4 @@ The **SHUTDOWN** command is an important Windows administration utility that all
 - Incident Response
 - Enterprise System Management
 - User Session Management
-- IT Support Operations
+- IT Support Operation
