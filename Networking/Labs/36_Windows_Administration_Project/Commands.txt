@@ -1,0 +1,19 @@
+systeminfo
+
+hostname
+
+whoami
+
+ipconfig /all
+
+net user
+
+tasklist
+
+sc query
+
+fsutil volume diskfree C:
+
+driverquery
+
+powercfg /getactivescheme
