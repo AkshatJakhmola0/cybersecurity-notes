@@ -20,6 +20,6 @@ schtasks
 
 driverquery
 
-wmic startup get caption,command
+reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Run
 
 openfiles /query
