@@ -1,0 +1,25 @@
+whoami
+
+hostname
+
+systeminfo
+
+ipconfig /all
+
+netstat -ano
+
+tasklist
+
+tasklist /svc
+
+net user
+
+net localgroup administrators
+
+schtasks
+
+driverquery
+
+wmic startup get caption,command
+
+openfiles /query
