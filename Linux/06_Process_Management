@@ -1,1 +1,603 @@
-Process Management
+# Process Management in Linux
+
+## What is Process Management?
+
+A process is a program that is currently running on a Linux system.
+
+Process Management is the practice of monitoring, controlling, and managing running processes to ensure system stability, performance, and security.
+
+---
+
+## Why is Process Management Important?
+
+Without Process Management
+
+* Applications may consume excessive CPU or memory.
+* Malicious processes may remain undetected.
+* Systems may become slow or unstable.
+* Troubleshooting becomes difficult.
+
+With Process Management
+
+* System performance can be monitored.
+* Suspicious processes can be identified.
+* Resource usage can be controlled.
+* Security incidents can be investigated efficiently.
+
+---
+
+## Real-World Example
+
+When you open Google Chrome:
+
+```text
+Google Chrome
+      │
+      ▼
+ Linux Kernel
+      │
+      ▼
+ Running Process
+      │
+      ▼
+ CPU + Memory Usage
+```
+
+Linux assigns a Process ID (PID) to manage the application.
+
+---
+
+## What is a PID?
+
+PID stands for Process ID.
+
+Every running process receives a unique numeric identifier.
+
+Example:
+
+```text
+PID     Process
+1001    chrome
+1205    firefox
+1500    sshd
+```
+
+---
+
+## View Running Processes
+
+### ps
+
+Displays currently running processes.
+
+```bash
+ps
+```
+
+Example Output:
+
+```text
+PID   TTY   TIME   CMD
+1234  pts/0 00:00 bash
+2345  pts/0 00:01 firefox
+```
+
+---
+
+## View All Processes
+
+```bash
+ps -e
+```
+
+Displays every running process.
+
+---
+
+## Detailed Process Information
+
+```bash
+ps -ef
+```
+
+Example Output:
+
+```text
+UID   PID  PPID  CMD
+root    1     0  systemd
+user 1200     1  bash
+```
+
+Useful for incident response investigations.
+
+---
+
+## Search for Specific Processes
+
+### grep
+
+```bash
+ps -ef | grep ssh
+```
+
+Example:
+
+```bash
+ps -ef | grep apache
+```
+
+Displays matching processes.
+
+---
+
+## Real-Time Process Monitoring
+
+### top
+
+Displays real-time system activity.
+
+```bash
+top
+```
+
+Shows:
+
+* CPU usage
+* Memory usage
+* Running processes
+* System load
+
+Widely used by administrators.
+
+---
+
+## Understanding Top Output
+
+Example:
+
+```text
+PID USER  CPU% MEM% COMMAND
+245 root  15.2 5.1 apache2
+```
+
+Meaning:
+
+* Process ID
+* Owner
+* CPU Usage
+* Memory Usage
+* Command Name
+
+---
+
+## Enhanced Process Monitoring
+
+### htop
+
+User-friendly alternative to top.
+
+```bash
+htop
+```
+
+Features:
+
+* Color interface
+* Process tree view
+* Easier navigation
+* Interactive process control
+
+Installation:
+
+```bash
+sudo apt install htop
+```
+
+---
+
+## View Process Tree
+
+### pstree
+
+Displays parent-child process relationships.
+
+```bash
+pstree
+```
+
+Example:
+
+```text
+systemd
+ ├─sshd
+ ├─NetworkManager
+ └─bash
+     └─firefox
+```
+
+Useful during investigations.
+
+---
+
+## Background Processes
+
+Linux allows programs to run in the background.
+
+Example:
+
+```bash
+firefox &
+```
+
+The ampersand (&) runs the process in the background.
+
+---
+
+## View Background Jobs
+
+### jobs
+
+```bash
+jobs
+```
+
+Example Output:
+
+```text
+[1]+ Running firefox &
+```
+
+Displays active jobs.
+
+---
+
+## Move Process to Background
+
+### bg
+
+```bash
+bg
+```
+
+Resumes a suspended job in the background.
+
+---
+
+## Move Process to Foreground
+
+### fg
+
+```bash
+fg
+```
+
+Brings a background job to the foreground.
+
+---
+
+## Identify Process ID
+
+### pidof
+
+```bash
+pidof firefox
+```
+
+Example Output:
+
+```text
+2450
+```
+
+Returns the process PID.
+
+---
+
+## Kill a Process
+
+### kill
+
+Terminates a process using its PID.
+
+```bash
+kill 2450
+```
+
+Example:
+
+```bash
+kill 1234
+```
+
+---
+
+## Force Kill a Process
+
+### kill -9
+
+```bash
+kill -9 2450
+```
+
+Uses the SIGKILL signal.
+
+Forcefully terminates the process.
+
+⚠ Use only when necessary.
+
+---
+
+## Kill by Process Name
+
+### pkill
+
+```bash
+pkill firefox
+```
+
+Terminates processes by name.
+
+---
+
+## Kill All Matching Processes
+
+### killall
+
+```bash
+killall firefox
+```
+
+Stops all processes with the specified name.
+
+---
+
+## Process Priority
+
+Linux assigns priorities to processes.
+
+Higher priority processes receive more CPU resources.
+
+---
+
+## View Process Priorities
+
+```bash
+top
+```
+
+Look for:
+
+```text
+NI = Nice Value
+PR = Priority
+```
+
+---
+
+## Start Process with Custom Priority
+
+### nice
+
+```bash
+nice -n 10 firefox
+```
+
+Starts a process with lower priority.
+
+---
+
+## Change Running Process Priority
+
+### renice
+
+```bash
+sudo renice 5 -p 2450
+```
+
+Changes priority of a running process.
+
+---
+
+## View System Services
+
+### systemctl
+
+Displays and manages services.
+
+```bash
+systemctl
+```
+
+---
+
+## Check Service Status
+
+```bash
+systemctl status ssh
+```
+
+Example:
+
+```bash
+systemctl status apache2
+```
+
+Displays:
+
+* Service state
+* PID
+* Logs
+* Startup information
+
+---
+
+## Start a Service
+
+```bash
+sudo systemctl start apache2
+```
+
+---
+
+## Stop a Service
+
+```bash
+sudo systemctl stop apache2
+```
+
+---
+
+## Restart a Service
+
+```bash
+sudo systemctl restart apache2
+```
+
+---
+
+## Enable Service at Boot
+
+```bash
+sudo systemctl enable apache2
+```
+
+---
+
+## Disable Service at Boot
+
+```bash
+sudo systemctl disable apache2
+```
+
+---
+
+## Why Process Management Matters in Cybersecurity
+
+Security professionals use process management to:
+
+* Detect malware
+* Identify suspicious processes
+* Investigate incidents
+* Monitor system resources
+* Stop malicious applications
+* Analyze persistence mechanisms
+
+Many attacks create unauthorized processes that can be identified through process analysis.
+
+---
+
+## Common SOC Investigation Commands
+
+View all processes:
+
+```bash
+ps -ef
+```
+
+Search suspicious process:
+
+```bash
+ps -ef | grep suspicious_name
+```
+
+Monitor activity:
+
+```bash
+top
+```
+
+View process tree:
+
+```bash
+pstree
+```
+
+Terminate malicious process:
+
+```bash
+kill -9 PID
+```
+
+---
+
+## Interview Questions
+
+### Q1. What is a process?
+
+A process is a program that is currently running on a Linux system.
+
+---
+
+### Q2. What is a PID?
+
+PID stands for Process ID and uniquely identifies a running process.
+
+---
+
+### Q3. Which command displays running processes?
+
+```bash
+ps
+```
+
+---
+
+### Q4. Which command provides real-time monitoring?
+
+```bash
+top
+```
+
+---
+
+### Q5. Which command kills a process?
+
+```bash
+kill PID
+```
+
+---
+
+### Q6. Which command forcefully terminates a process?
+
+```bash
+kill -9 PID
+```
+
+---
+
+### Q7. Which command displays process hierarchy?
+
+```bash
+pstree
+```
+
+---
+
+### Q8. Which command manages Linux services?
+
+```bash
+systemctl
+```
+
+---
+
+## Key Takeaways
+
+✔ Every running program is a process.
+
+✔ Each process has a unique PID.
+
+✔ ps displays process information.
+
+✔ top and htop monitor system activity.
+
+✔ kill and pkill terminate processes.
+
+✔ jobs, bg, and fg manage background tasks.
+
+✔ nice and renice control process priority.
+
+✔ systemctl manages Linux services.
+
+✔ Process analysis is a critical skill for SOC Analysts, Incident Responders, and Linux Administrators.
