@@ -1,1 +1,0 @@
-SCREENSHOT of Implementation
