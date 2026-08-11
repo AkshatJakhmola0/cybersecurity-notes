@@ -1,6 +1,3 @@
-Yes. I'll keep each file **under 400 lines**, concise, and directly usable as a `.md` GitHub note. Here's the revised `09_System_Monitoring.md`.
-
-````markdown
 # System Monitoring in Linux
 
 ## What is System Monitoring?
@@ -715,7 +712,3 @@ lsof -i :80
 
 ✔ System monitoring is essential for SOC Analysts, Incident Responders, and Security Engineers.
 
-```
-
-This version is **well under 400 lines** and matches the style of your `08_Networking_in_Linux.md` much more closely.
-```
