@@ -1,0 +1,27 @@
+date
+
+cal
+
+uname
+
+uname -a
+
+whoami
+
+id
+
+hostname
+
+uptime
+
+history
+
+clear
+
+man ls
+
+echo "Hello Linux"
+
+which ls
+
+whereis bash
