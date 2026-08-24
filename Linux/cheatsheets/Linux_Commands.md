@@ -1,71 +1,85 @@
 # Linux Commands Cheat Sheet
 
-## Navigation
+## Navigation Commands
 
 | Command | Description |
 |----------|-------------|
 | pwd | Show current directory |
-| ls | List files |
+| ls | List files and folders |
+| ls -l | Long listing format |
 | ls -la | Show hidden files |
-| cd | Change directory |
+| cd directory | Change directory |
 | cd .. | Move one level up |
 | cd ~ | Go to home directory |
 
 ---
 
-## File Management
+## File Management Commands
 
 | Command | Description |
 |----------|-------------|
-| touch file.txt | Create file |
-| mkdir test | Create directory |
+| touch file.txt | Create a file |
+| mkdir folder | Create directory |
 | rm file.txt | Delete file |
 | rm -r folder | Delete directory |
 | cp file1 file2 | Copy file |
-| mv old new | Rename/Move file |
+| mv old new | Move/Rename file |
 
 ---
 
-## Viewing Files
+## File Viewing Commands
 
 | Command | Description |
 |----------|-------------|
-| cat file.txt | Display file |
+| cat file.txt | Display file content |
 | less file.txt | View large files |
-| head file.txt | First 10 lines |
-| tail file.txt | Last 10 lines |
-| tail -f file.txt | Live monitoring |
+| head file.txt | Show first 10 lines |
+| tail file.txt | Show last 10 lines |
+| tail -f file.txt | Monitor file in real time |
 
 ---
 
-## System Information
+## System Information Commands
 
 | Command | Description |
 |----------|-------------|
-| uname -a | Kernel information |
-| hostname | Show hostname |
-| whoami | Current user |
-| id | User details |
-| uptime | System uptime |
-| date | Current date and time |
+| uname | Show kernel name |
+| uname -a | Detailed system information |
+| hostname | Show system hostname |
+| whoami | Show current user |
+| id | Display user and group IDs |
+| uptime | Show system uptime |
+| date | Display current date and time |
 
 ---
 
-## Searching
+## Search Commands
 
 | Command | Description |
 |----------|-------------|
-| find / -name test.txt | Find file |
-| which ls | Locate executable |
-| whereis bash | Locate binary and docs |
-| grep root file.txt | Search text |
+| find / -name file.txt | Search files |
+| which command | Locate executable |
+| whereis command | Locate binary and manuals |
+| grep keyword file.txt | Search text in file |
 
 ---
 
 ## SOC Analyst Usage
 
-- System triage
-- User identification
-- File investigations
+- System enumeration
 - Evidence collection
+- User identification
+- File investigation
 - Initial incident response
+
+---
+
+## Quick Examples
+
+```bash
+pwd
+ls -la
+whoami
+uname -a
+find / -name passwords.txt
+```
