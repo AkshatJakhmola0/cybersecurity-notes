@@ -1,0 +1,35 @@
+whoami
+
+id
+
+groups
+
+cat /etc/passwd
+
+cat /etc/group
+
+sudo useradd testuser
+
+sudo passwd testuser
+
+sudo groupadd analysts
+
+sudo usermod -aG analysts testuser
+
+ls -l
+
+touch file.txt
+
+touch script.sh
+
+chmod 755 file.txt
+
+chmod 644 file.txt
+
+chmod +x script.sh
+
+sudo chown testuser file.txt
+
+sudo chgrp analysts file.txt
+
+sudo userdel testuser
