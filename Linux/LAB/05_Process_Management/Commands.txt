@@ -1,0 +1,36 @@
+
+ip addr
+
+ip route
+
+ip link show
+
+ping 8.8.8.8
+
+ping google.com
+
+host google.com
+
+nslookup google.com
+
+dig google.com
+
+ss -tulnp
+
+netstat -tulnp
+
+traceroute google.com
+
+curl https://google.com
+
+wget https://example.com
+
+ip neigh
+
+ss -lnt
+
+ss -ant
+
+hostname
+
+cat /etc/resolv.conf
